@@ -31,7 +31,7 @@
 
         width: 48px;
         height: 48px;
-}
+      }
         .soundcloud-icon {
           display: block;
           width: 55px;
@@ -87,7 +87,7 @@
             transition:
             transform 0.2s ease,
             filter 0.2s ease;
-}
+        }
         .icon-link:hover .github-icon,
         .icon-link:focus-visible .github-icon {
           transform: scale(1.05);
@@ -139,7 +139,7 @@
             font-style: italic;
             letter-spacing: 0.08em;
             text-transform: uppercase;
-}
+        }
         * {
           margin: 0;
           padding: 0;
@@ -159,6 +159,71 @@
           height: 100vh;
           z-index: 0;
           color: black
+        }
+        .ocean {
+          height: 5%;
+          width:100%;
+          position:absolute;
+          bottom:0;
+          left:0;
+          background: transparent;
+        }
+        .wave {
+          position: absolute;
+          top: -100px;
+          width: 6400px;
+          height: 200px;
+
+          background: linear-gradient(
+            90deg,
+            #ff8c00,
+            #ff8000,
+            #ff7000
+            );
+
+          -webkit-mask-image: url("wave.svg");
+          mask-image: url("wave.svg");
+
+          -webkit-mask-repeat: repeat-x;
+          mask-repeat: repeat-x;
+
+          -webkit-mask-position: left top;
+          mask-position: left top;
+
+          -webkit-mask-size: 1600px 198px;
+          mask-size: 1600px 198px;
+
+          animation: wave 7s cubic-bezier(
+          0.36,
+          0.45,
+          0.63,
+          0.53
+          ) infinite;
+
+          transform: translate3d(0, 0, 0);
+        }
+        .wave:nth-of-type(2) {
+          top: -130px;
+          animation: wave 7s cubic-bezier( 0.36, 0.45, 0.63, 0.53) -.125s infinite, swell 7s ease -1.25s infinite;
+          opacity: 1;
+        }
+
+        @keyframes wave {
+          0% {
+            margin-left: 0;
+            }
+          100% {
+            margin-left: -1600px;
+            }
+        }
+
+        @keyframes swell {
+          0%, 100% {
+            transform: translate3d(0,-25px,0);
+          }
+          50% {
+            transform: translate3d(0,5px,0);
+          }        
         }
       </style>
     </head>
@@ -195,12 +260,16 @@
       
       <header class="header-links">
         <nav class="nav-links">
-            <a href="code.html">Music</a>
-            <a href="music.html">Code</a>
+            <a href="music.html">Music</a>
+            <a href="code.html">Code</a>
         
         </nav>
       </header>
 
+      <div class="ocean">
+        <div class="wave"></div>
+        <div class="wave"></div>
+      </div>
 
       <canvas id="particleCanvas"></canvas>
 
