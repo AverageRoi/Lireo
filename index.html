@@ -5,14 +5,62 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Lireo</title>
       <style>
-        .icon-links {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
+        .main-thing {
+            position: fixed;
+            top: 54%;
+            left: 50%;
+            transform: translate(-50%, -50%);
 
-            width: 48px;
-            height: 48px;
+            z-index: 10;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
         }
+        .icon-links {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 24px;
+        }
+        .icon-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 48px;
+        height: 48px;
+}
+        .github-icon {
+            display: block;
+            width: 38px;
+            height: 38px;
+
+            background: linear-gradient(
+            90deg,
+            #ff8c00,
+            #ff8000,
+            #ff7000
+            );
+
+            -webkit-mask: url("assets/icons/github-icon.svg")
+            center / contain
+            no-repeat;
+
+            mask:
+            url("assets/icons/github-icon.svg")
+            center / contain
+            no-repeat;
+
+            transition:
+            transform 0.2s ease,
+            filter 0.2s ease;
+}
+        .icon-link:hover .github-icon {            
+            filter:
+            drop-shadow(0 0 8px rgba(255, 128, 0, 0.8));
+}
         .header-links {
             position: fixed;
             top: 0;
@@ -30,37 +78,36 @@
             display: flex;
             gap: 40px;
         }
-
         .nav-links a {
             color: white;
             font-family:Arial, Helvetica, sans-serif;
             transition: color 0.2s ease;
             font-size: 30px
         }
-
         .nav-links a:hover {
             color: #ff8c00
         }
-
         h1 {
-            position: fixed;
-            top: 54%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-
-            z-index: 10;
             margin: 0;
-            
+
             color: transparent;
-            background: linear-gradient(90deg, #ff8c00, #ff8000,  #ff7000);
+            background: linear-gradient(
+            90deg,
+            #ff8c00,
+            #ff8000,
+            #ff7000
+            );
+
             background-clip: text;
             -webkit-background-clip: text;
+
             font-family: Arial, sans-serif;
             font-size: clamp(4rem, 12vw, 9rem);
             font-weight: 700;
+            font-style: italic;
             letter-spacing: 0.08em;
             text-transform: uppercase;
-        }
+}
         * {
           margin: 0;
           padding: 0;
@@ -84,10 +131,22 @@
       </style>
     </head>
     <body>
+    <main class="main-thing">
+        <h1>Lireo</h1>
 
-        <
+        <nav class="icon-links" aria-label="Links">
+            <a href="https://github.com/AverageRoi"
+             class="icon-link"
+             target="_blank"
+             rel="noopener noreffer"
+             aria-label="Github"
+            >
+        <span class="github-icon" aria-hidden="true"></span>
+        </a>
+        </nav>
 
-      <h1><i>Lireo</h1></i></h1>
+
+    </main>
       
       <header class="header-links">
         <nav class="nav-links">
