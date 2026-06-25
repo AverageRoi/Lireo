@@ -57,10 +57,12 @@
             transform 0.2s ease,
             filter 0.2s ease;
 }
-        .icon-link:hover .github-icon {            
-            outline: 10px solid red;
-
-          }
+        .icon-link:hover .github-icon,
+        .icon-link:focus-visible .github-icon {
+          transform: scale(1.05);
+          background: #ffdede;
+        
+        }
         .header-links {
             position: fixed;
             top: 0;
