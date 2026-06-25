@@ -31,10 +31,83 @@
             font-weight: 700;
             letter-spacing: 0.08em;
         }
+        .return-link {
+
+            margin-top: 40%;
+            margin-left: 90%;
+            display: flex;
+            color: #ff8000;
+            font-family:Arial, Helvetica, sans-serif;
+            transition: color 0.2s ease;
+            font-size: 40px
+        }
+        .return-link:hover {
+            color: #ffdede
+        }
+        .return-icon {
+            display: block;
+            width: 55px;
+            height: 55px;
+
+            background: linear-gradient(
+            90deg,
+            #ff8c00,
+            #ff8000,
+            #ff7000
+            );
+
+            -webkit-mask: url("return-icon.svg")
+            center / contain
+            no-repeat;
+
+            mask:
+            url("return-icon.svg")
+            center / contain
+            no-repeat;
+
+            transition:
+            transform 0.2s ease,
+            filter 0.2s ease;
+        }
+        .return-link:hover .return-icon,
+        .returnlink:focus-visible .return-icon {
+          transform: scale(1.05);
+          background: #ffdede;
+        }
+        .forever-destined {
+            font-size: 10px;
+            color: #cccccc;
+            line-break: anywhere;
+            word-break: normal;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;
+            font-weight: 100;
+        }
 </style>
 <body>
     <h1>
         Here is my music collection
     </h1>
+
+        <nav class="return-link" aria-label="Return">
+
+            <a href="/Lireo"
+             rel="noopener noreferrer"
+             aria-label="Return"
+            >
+        <span class="return-icon" aria-hidden="true"></span>    
+        </a>
+        <iframe 
+            width="100%" 
+            height="300" 
+            scrolling="no" 
+            frameborder="no" 
+            allow="autoplay; encrypted-media" 
+            src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/soundcloud%253Aplaylists%253A1968417444&color=%23643494&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=true">
+        </iframe>
+        <div class="forever-destined">
+        <a href="https://soundcloud.com/lireomusic" title="Lireo" target="_blank" style="color: #cccccc; text-decoration: none;">Lireo</a> · <a href="https://soundcloud.com/lireomusic/sets/forever-destined" title="Forever Destined" target="_blank" style="color: #cccccc; text-decoration: none;">Forever Destined</a></div>
 </body>
 </html>
