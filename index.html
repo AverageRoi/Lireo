@@ -32,6 +32,37 @@
         width: 48px;
         height: 48px;
 }
+        .soundcloud-icon {
+          display: block;
+          width: 55px;
+          height: 55px;
+
+            background: linear-gradient(
+            90deg,
+            #ff8c00,
+            #ff8000,
+            #ff7000
+            );
+
+            -webkit-mask: url("soundcloud-icon.svg")
+            center / contain
+            no-repeat;
+
+            mask:
+            url("soundcloud-icon.svg")
+            center / contain
+            no-repeat;
+
+            transition:
+            transform 0.2s ease,
+            filter 0.2s ease;
+
+        }
+        .icon-link:hover .soundcloud-icon,
+        .icon-link:focus-visible .soundcloud-icon {
+          transform: scale(1.05);
+          background: #ffdede;
+        }
         .github-icon {
             display: block;
             width: 55px;
@@ -61,7 +92,6 @@
         .icon-link:focus-visible .github-icon {
           transform: scale(1.05);
           background: #ffdede;
-        
         }
         .header-links {
             position: fixed;
@@ -146,6 +176,14 @@
             >
         <span class="github-icon" aria-hidden="true"></span>
         </a>
+            <a href="https://soundcloud.com/lireomusic"
+             class="icon-link"
+             target="_blank"
+             rel="noopener noreferrer"
+
+             aria-label="SoundCloud"
+            >
+        <span class="soundcloud-icon" aria-hidden="true"></span>
         </nav>
 
 
