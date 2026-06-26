@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code</title>
+</head>
+<style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            overflow-x: hidden;
+            background: black;
+}
+        h1 {
+            margin: 40px;
+            left: 0;
+            text-align: center;
+
+            color: transparent;
+            background: linear-gradient(
+            90deg,
+            #ff8c00,
+            #ff8000,
+            #ff7000
+            );
+
+            background-clip: text;
+            -webkit-background-clip: text;
+
+            font-family: Arial, sans-serif;
+            font-size: clamp(3rem, 4vw, 9rem);
+            font-weight: 700;
+            letter-spacing: 0.08em;
+        }
+        .return-link {
+            position: fixed;
+            top: 30px;
+            left: 40px;
+            z-index: 10;
+        }
+        .return-link a {
+            display:inline-flex;
+            text-decoration: none;
+        }
+        .return-link:hover {
+            color: #ffdede
+        }
+        .return-icon {
+            display: block;
+            width: 55px;
+            height: 55px;
+
+            background: linear-gradient(
+            90deg,
+            #ff8c00,
+            #ff8000,
+            #ff7000
+            );
+
+            -webkit-mask: url("return-icon.svg")
+            center / contain
+            no-repeat;
+
+            mask:
+            url("return-icon.svg")
+            center / contain
+            no-repeat;
+
+            transition:
+            transform 0.2s ease,
+            filter 0.2s ease;
+        }
+        .return-link a:hover .return-icon,
+        .return-link a:focus-visible .return-icon {
+          transform: scale(1.05);
+          background: #ffdede;
+        }
+        
+</style>
+<body>
+    <h1>
+        Here are my projects
+    </h1>
+
+        <nav class="return-link" aria-label="Return">
+
+            <a href="/"
+             rel="noopener noreferrer"
+             aria-label="Return"
+            >
+        <span class="return-icon" aria-hidden="true"></span>    
+        </a>
+        </nav>
+</body>
+</html>
