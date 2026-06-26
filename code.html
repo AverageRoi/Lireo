@@ -2,182 +2,500 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
     <title>Code</title>
-</head>
-<style>
+
+    <style>
+        @font-face {
+            font-family: "Geist";
+            src: url("https://assets.codepen.io/605876/GeistVF.ttf")
+                format("truetype");
+        }
+
+        :root {
+            --dot-size: 20px;
+            --orange-1: #ff8c00;
+            --orange-2: #ff8000;
+            --orange-3: #ff7000;
+            --card-background: rgba(0, 0, 0, 1);
+            --card-radius: 14px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            background: black;
+        }
+
         body {
             position: relative;
             margin: 0;
             min-height: 100vh;
             overflow-x: hidden;
             background: black;
-        }
-        h1 {
-            margin: 40px;
-            left: 0;
-            text-align: center;
-
-            color: transparent;
-            background: linear-gradient(
-            90deg,
-            #ff8c00,
-            #ff8000,
-            #ff7000
-            );
-
-            background-clip: text;
-            -webkit-background-clip: text;
-
+            color: white;
             font-family: Arial, sans-serif;
-            font-size: clamp(3rem, 4vw, 9rem);
-            font-weight: 700;
-            letter-spacing: 0.08em;
-        }
-        .return-link {
-            position: fixed;
-            top: 30px;
-            left: 40px;
-            z-index: 10;
-        }
-        .return-link a {
-            display:inline-flex;
-            text-decoration: none;
-        }
-        .return-link:hover {
-            color: #ffdede
-        }
-        .return-icon {
-            display: block;
-            width: 55px;
-            height: 55px;
-
-            background: linear-gradient(
-            90deg,
-            #ff8c00,
-            #ff8000,
-            #ff7000
-            );
-
-            -webkit-mask: url("return-icon.svg")
-            center / contain
-            no-repeat;
-
-            mask:
-            url("return-icon.svg")
-            center / contain
-            no-repeat;
-
-            transition:
-            transform 0.2s ease,
-            filter 0.2s ease;
-        }
-        .return-link a:hover .return-icon,
-        .return-link a:focus-visible .return-icon {
-          transform: scale(1.05);
-          background: #ffdede;
-        }
-        @font-face {
-            font-family: "Geist";
-            src: url("https://assets.codepen.io/605876/GeistVF.ttf") format("truetype");
         }
 
-        * {
-            box-sizing: border-box;
-        }
-        :root {
-            --size: 20px;
-        }
-        .el {
+        .background-effect {
             position: fixed;
             inset: 0;
             z-index: 0;
             pointer-events: none;
-            background: conic-gradient(from 180deg at 50% 70%,hsla(0,0%,98%,1) 0deg,#eec32d 72.0000010728836deg,#ec4b4b 144.0000021457672deg,#709ab9 216.00000858306885deg,#4dffbf 288.0000042915344deg,hsla(0,0%,98%,1) 1turn);
-            width: 100%;
-            height: 100%;
+
+            background: conic-gradient(
+                from 180deg at 50% 70%,
+                hsla(0, 0%, 98%, 1) 0deg,
+                #eec32d 72deg,
+                #ec4b4b 144deg,
+                #709ab9 216deg,
+                #4dffbf 288deg,
+                hsla(0, 0%, 98%, 1) 360deg
+            );
+
             mask:
-                radial-gradient(circle at 50% 50%, white 2px, transparent 2.5px) 50% 50% / var(--size) var(--size),
-                url("https://assets.codepen.io/605876/noise-mask.png") 256px 50% / 256px 256px;
+                radial-gradient(
+                    circle at 50% 50%,
+                    white 2px,
+                    transparent 2.5px
+                )
+                50% 50% / var(--dot-size) var(--dot-size),
+
+                url("https://assets.codepen.io/605876/noise-mask.png")
+                256px 50% / 256px 256px;
+
             mask-composite: intersect;
-                -webkit-mask:
-        radial-gradient(
-            circle at 50% 50%,
-            white 2px,
-            transparent 2.5px
-        ) 50% 50% / var(--size) var(--size),
-        url("https://assets.codepen.io/605876/noise-mask.png")
-        256px 50% / 256px 256px;
 
-                -webkit-mask-composite: source-in;
+            -webkit-mask:
+                radial-gradient(
+                    circle at 50% 50%,
+                    white 2px,
+                    transparent 2.5px
+                )
+                50% 50% / var(--dot-size) var(--dot-size),
 
-                animation: flicker 20s infinite linear;
+                url("https://assets.codepen.io/605876/noise-mask.png")
+                256px 50% / 256px 256px;
+
+            -webkit-mask-composite: source-in;
+
+            animation: flicker 20s infinite linear;
         }
 
-        h2 {
-            position: absolute;
-            top: 5%;
-            left: 17%;
-
-            margin: 0;
-            font-size: 34px;
-            font-family:Arial, sans-serif;
-            font-weight: 140;
-            color: white;
-        }
         @keyframes flicker {
             to {
                 mask-position: 50% 50%, 0 50%;
                 -webkit-mask-position: 50% 50%, 0 50%;
             }
         }
-        .blocks {
-            position: absolute;
-            width: 350px;
-            height: 400px;
-            z-index: 15;
+
+        .return-link {
+            position: fixed;
+            top: 30px;
+            left: 40px;
+            z-index: 20;
+        }
+
+        .return-link a {
+            display: inline-flex;
+            border-radius: 10px;
+            text-decoration: none;
+        }
+
+        .return-icon {
+            display: block;
+            width: 55px;
+            height: 55px;
+
+            background: linear-gradient(
+                90deg,
+                var(--orange-1),
+                var(--orange-2),
+                var(--orange-3)
+            );
+
+            -webkit-mask:
+                url("./return-icon.svg")
+                center / contain
+                no-repeat;
+
+            mask:
+                url("./return-icon.svg")
+                center / contain
+                no-repeat;
+
+            transition:
+                transform 0.2s ease,
+                background 0.2s ease;
+        }
+
+        .return-link a:hover .return-icon,
+        .return-link a:focus-visible .return-icon {
+            transform: scale(1.08);
+            background: #ffdede;
+        }
+
+
+        .page-content {
+            position: relative;
+            z-index: 1;
+
+            width: min(1200px, calc(100% - 48px));
+            margin: 0 auto;
+            padding: 30px 0 80px;
+        }
+
+        .page-title {
+            margin: 0 0 70px;
+            text-align: center;
+
+            color: transparent;
+            background: linear-gradient(
+                90deg,
+                var(--orange-1),
+                var(--orange-2),
+                var(--orange-3)
+            );
+
+            background-clip: text;
+            -webkit-background-clip: text;
+
+            font-size: clamp(3rem, 5vw, 5.5rem);
+            font-weight: 700;
+            letter-spacing: 0.08em;
+        }
+
+
+        .project-grid {
+            display: grid;
+
+            grid-template-columns: repeat(
+                auto-fit,
+                minmax(min(100%, 320px), 1fr)
+            );
+
+            gap: 32px;
+            align-items: stretch;
+        }
+
+        .project-card {
+            display: flex;
+            flex-direction: column;
+            min-height: 450px;
+            overflow: hidden;
 
             border: 3px solid transparent;
-            border-radius: 12px;
+            border-radius: var(--card-radius);
 
             background:
-                linear-gradient(black, black) padding-box,
                 linear-gradient(
-                    90deg,
-                    #ff8c00,
-                    #ff8000,
-                    #ff7000
-                ) border-box;
+                    var(--card-background),
+                    var(--card-background)
+                )
+                padding-box,
+
+                linear-gradient(
+                    135deg,
+                    var(--orange-1),
+                    var(--orange-2),
+                    var(--orange-3)
+                )
+                border-box;
+            transition:
+                transform 0.2s ease,
         }
-        .avenue-guard {
-            top: 45%;
-            left: 38%;
-            transform: translate(-50%, -50%);
+
+        .project-media {
+            display: grid;
+            width: 100%;
+            height: 180px;
+            place-items: center;
+
+            padding: 26px;
+
+
+            border-bottom: 1px solid orange
         }
-        .avenue-guard-image {
-            
+
+        .project-image {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
-</style>
+
+        .project-content {
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+
+            padding: 24px;
+        }
+
+        .project-title {
+            margin: 0 0 14px;
+
+            color: white;
+            font-size: 1.8rem;
+            font-weight: 650;
+            line-height: 1.15;
+        }
+
+        .project-description {
+            margin: 0;
+            color: #c6c6c6;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+
+        .project-icons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+
+            margin-top: auto;
+            padding-top: 28px;
+        }
+
+        .technology-icon {
+            display: grid;
+            width: 44px;
+            height: 44px;
+            place-items: center;
+
+            transition:
+                background 0.2s ease;
+        }
+
+        .technology-icon:hover {
+            background: #ffdede
+        }
+
+        .technology-icon img {
+            display: block;
+            width: 25px;
+            height: 25px;
+            object-fit: contain;
+        }
+
+        /* Responsive layout */
+
+        @media (max-width: 700px) {
+            .return-link {
+                top: 20px;
+                left: 20px;
+            }
+
+            .return-icon {
+                width: 44px;
+                height: 44px;
+            }
+
+            .page-content {
+                width: min(100% - 28px, 1200px);
+                padding-top: 100px;
+            }
+
+            .page-title {
+                margin-bottom: 42px;
+                font-size: clamp(2.4rem, 12vw, 4rem);
+                line-height: 1.05;
+            }
+
+            .project-grid {
+                gap: 24px;
+            }
+
+            .project-card {
+                min-height: 420px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .background-effect {
+                animation: none;
+            }
+
+            .project-card,
+            .technology-icon,
+            .return-icon {
+                transition: none;
+            }
+        }
+    </style>
+</head>
+
 <body>
-    <div class="el">
-    </div>
-    <h1>
-        Here are my projects
-    </h1>
+    <div class="background-effect" aria-hidden="true"></div>
 
-        <nav class="return-link" aria-label="Return">
-
-            <a href="/"
-             rel="noopener noreferrer"
-             aria-label="Return"
-            >
-        <span class="return-icon" aria-hidden="true"></span>    
+    <nav class="return-link" aria-label="Return">
+        <a href="/" aria-label="Return to the home page">
+            <span class="return-icon" aria-hidden="true"></span>
         </a>
-        </nav>
-        <div class="blocks avenue-guard">
-            <h2>Avenue Guard</h2>
-        </div>
+    </nav>
 
-    </div>
+    <main class="page-content">
+        <h1 class="page-title">Here are my projects</h1>
+
+        <section
+            class="project-grid"
+            id="project-grid"
+            aria-label="Software projects"
+        ></section>
+    </main>
+
+    <script>
+        
+        const projects = [
+            {
+                title: "Avenue Guard",
+
+                description:
+                    "Avenue Guard is the Discord utility bot for GD Avenue. It handles moderation guardrails, live level request waves, weekly activity rewards, staff tickets, DM help flows, forum reminders, sticky notices, configurable auto-responses, and a few community fun commands.",
+
+                image: "./IMG/avenue-guard-img.png",
+                imageAlt: "Avenue Guard logo",
+
+                icons: [
+                    {
+                        src: "./SVG/python.svg",
+                        name: "Python"
+                    },
+                    {
+                        src: "./SVG/nodejs.svg",
+                        name: "Node.js"
+                    },
+                    {
+                        src: "./SVG/discord.svg",
+                        name: "Discord"
+                    },
+                    {
+                        src: "./SVG/prisma.svg",
+                        name: "Prisma"
+                    },
+                    {
+                        src: "./SVG/sqlite.svg",
+                        name: "SQLite"
+                    }
+                ]
+            },
+
+            {
+                title: "Second Project",
+
+                description:
+                    "Replace this text with a description of your second project. The card size and internal positioning are handled automatically.",
+
+                image: "./IMG/project-two.png",
+                imageAlt: "Second project preview",
+
+                icons: [
+                    {
+                        src: "./SVG/html.svg",
+                        name: "HTML"
+                    },
+                    {
+                        src: "./SVG/css.svg",
+                        name: "CSS"
+                    },
+                    {
+                        src: "./SVG/javascript.svg",
+                        name: "JavaScript"
+                    }
+                ]
+            },
+
+            {
+                title: "Third Project",
+
+                description:
+                    "Add as many project objects as needed. The grid automatically creates additional rows when there is not enough horizontal space.",
+
+                image: "./IMG/project-three.png",
+                imageAlt: "Third project preview",
+
+                icons: [
+                    {
+                        src: "./SVG/python.svg",
+                        name: "Python"
+                    },
+                    {
+                        src: "./SVG/github.svg",
+                        name: "GitHub"
+                    }
+                ]
+            }
+        ];
+
+        const projectGrid = document.querySelector("#project-grid");
+
+        function createTechnologyIcon(icon) {
+            const iconContainer = document.createElement("span");
+            iconContainer.className = "technology-icon";
+            iconContainer.title = icon.name;
+
+            const iconImage = document.createElement("img");
+            iconImage.src = icon.src;
+            iconImage.alt = icon.name;
+            iconImage.loading = "lazy";
+
+            iconContainer.append(iconImage);
+
+            return iconContainer;
+        }
+
+        function createProjectCard(project) {
+            const card = document.createElement("article");
+            card.className = "project-card";
+
+            const media = document.createElement("div");
+            media.className = "project-media";
+
+            const projectImage = document.createElement("img");
+            projectImage.className = "project-image";
+            projectImage.src = project.image;
+            projectImage.alt = project.imageAlt;
+            projectImage.loading = "lazy";
+
+            const content = document.createElement("div");
+            content.className = "project-content";
+
+            const title = document.createElement("h2");
+            title.className = "project-title";
+            title.textContent = project.title;
+
+            const description = document.createElement("p");
+            description.className = "project-description";
+            description.textContent = project.description;
+
+            const icons = document.createElement("div");
+            icons.className = "project-icons";
+            icons.setAttribute(
+                "aria-label",
+                `Technologies used for ${project.title}`
+            );
+
+            project.icons.forEach((icon) => {
+                icons.append(createTechnologyIcon(icon));
+            });
+
+            media.append(projectImage);
+            content.append(title, description, icons);
+            card.append(media, content);
+
+            return card;
+        }
+
+        projects.forEach((project) => {
+            projectGrid.append(createProjectCard(project));
+        });
+    </script>
 </body>
 </html>
