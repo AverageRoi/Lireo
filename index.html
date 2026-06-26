@@ -7,7 +7,7 @@
       <style>
         .main-thing {
             position: fixed;
-            top: 54%;
+            top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
 
@@ -16,7 +16,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 30px;
+            gap: 25px;
         }
         .icon-links {
         display: flex;
@@ -29,13 +29,13 @@
         align-items: center;
         justify-content: center;
 
-        width: 48px;
-        height: 48px;
+        width: 50px;
+        height: 50px;
       }
         .soundcloud-icon {
           display: block;
-          width: 55px;
-          height: 55px;
+          width: 48px;
+          height: 48px;
 
             background: linear-gradient(
             90deg,
@@ -65,8 +65,8 @@
         }
         .github-icon {
             display: block;
-            width: 55px;
-            height: 55px;
+            width: 48px;
+            height: 48px;
 
             background: linear-gradient(
             90deg,
@@ -93,6 +93,26 @@
           transform: scale(1.05);
           background: #ffdede;
         }
+        .header-privacy {
+            position: static;
+            width: auto;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            z-index: auto;
+            text-decoration: none;
+        }
+        .nav-privacy a {
+            color: #ff8000;
+            font-family:Arial, Helvetica, sans-serif;
+            font-size: 18px;
+            text-decoration: none;
+        }
+        .nav-privacy a:hover {
+            color: #ffdede
+        }
         .header-links {
             position: fixed;
             top: 0;
@@ -115,14 +135,14 @@
             color: #ff8000;
             font-family:Arial, Helvetica, sans-serif;
             transition: color 0.2s ease;
-            font-size: 40px
+            font-size: 40px;
+            text-decoration: none;
         }
         .nav-links a:hover {
             color: #ffdede
         }
         h1 {
             margin: 0;
-
             color: transparent;
             background: linear-gradient(
             90deg,
@@ -256,6 +276,12 @@
 
         </nav>
 
+      <header class="header-privacy">
+            <nav class="nav-privacy">
+                <a href="privacy.html">Privacy Policy</a>
+            </nav>
+      </header>
+
 
     </main>
       
@@ -370,3 +396,4 @@
       </script>
     </body>
     </html>
+
