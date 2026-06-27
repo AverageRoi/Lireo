@@ -259,13 +259,66 @@
         }
 
 
+        .project-footer {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 18px;
+
+            margin-top: auto;
+            padding-top: 28px;
+        }
+
         .project-icons {
             display: flex;
             flex-wrap: wrap;
             gap: 12px;
+        }
 
-            margin-top: auto;
-            padding-top: 28px;
+        .repo-link {
+            display: grid;
+            flex: 0 0 auto;
+            width: 44px;
+            height: 44px;
+            place-items: center;
+
+            border-radius: 10px;
+            text-decoration: none;
+
+            transition:
+                transform 0.2s ease,
+                background-color 0.2s ease;
+        }
+
+        .repo-icon {
+            display: block;
+            width: 30px;
+            height: 30px;
+
+            background: linear-gradient(
+                135deg,
+                var(--orange-1),
+                var(--orange-2),
+                var(--orange-3)
+            );
+
+            -webkit-mask:
+                url("/SVG/to-repo.svg")
+                center / contain
+                no-repeat;
+
+            mask:
+                url("/SVG/to-repo.svg")
+                center / contain
+                no-repeat;
+            transition:
+                transform 0.2s ease,
+                filter 0.2s ease;
+        }
+        .repo-link:hover .repo-icon,
+        .repo-link:focus-visible .repo-icon {
+            background: #ffdede;
+            transform: scale(1.05);
         }
 
         .technology-icon {
@@ -321,6 +374,7 @@
 
             .project-card,
             .technology-icon,
+            .repo-link,
             .return-icon {
                 transition: none;
             }
@@ -366,6 +420,8 @@
             {
                 title: "Avenue Guard",
 
+                repo: "https://github.com/YOUR-USERNAME/AVENUE-GUARD",
+
                 description:
                     "Avenue Guard is the Discord utility bot for GD Avenue. It handles moderation guardrails, live level request waves, weekly activity rewards, staff tickets, DM help flows, forum reminders, sticky notices, configurable auto-responses, and a few community fun commands.",
 
@@ -394,6 +450,8 @@
 
             {
                 title: "Nauta",
+
+                repo: "https://github.com/AverageRoi/nauta",
 
                 description:
                     "Nauta is a free Discord bot for Minecraft servers that stores, finds, and manages coordinates",
@@ -424,6 +482,8 @@
             {
                 title: "Nauta (web)",
 
+                repo: "https://github.com/AverageRoi/nauta-web",
+
                 description:
                     "Nauta's web used for command explanations, bot Privacy Policy and Terms of Service, About, and bot installation with a built-in search system.",
 
@@ -452,6 +512,8 @@
             {
                 title: "GD Avenue Site",
 
+                repo: "https://github.com/YOUR-USERNAME/GD-AVENUE-SITE",
+
                 description:
                     "GD Avenue website with an extension of server rules (accordion), ideas generation through tagg aggregation and random selections from a pool, about section for some server staff, and privacy policy.",
 
@@ -475,6 +537,8 @@
             },
             {
                 title: "Shaw",
+
+                repo: "https://github.com/AverageRoi/Shaw",
 
                 description:
                     "Discord bot designed to prevent spoilers in messages with a warning accumulation system. It watches selected channels for spoiler words, deletes messages that do not hide those words, warns the user, logs the warning, and keeps track of each user's warning count.",
@@ -551,8 +615,29 @@
                 icons.append(createTechnologyIcon(icon));
             });
 
+            const footer = document.createElement("div");
+            footer.className = "project-footer";
+
+            const repoLink = document.createElement("a");
+            repoLink.className = "repo-link";
+            repoLink.href = project.repo;
+            repoLink.target = "_blank";
+            repoLink.rel = "noopener noreferrer";
+            repoLink.setAttribute(
+                "aria-label",
+                `Open the ${project.title} GitHub repository`
+            );
+            repoLink.title = "Open GitHub repository";
+
+            const repoIcon = document.createElement("span");
+            repoIcon.className = "repo-icon";
+            repoIcon.setAttribute("aria-hidden", "true");
+
+            repoLink.append(repoIcon);
+            footer.append(icons, repoLink);
+
             media.append(projectImage);
-            content.append(title, description, icons);
+            content.append(title, description, footer);
             card.append(media, content);
 
             return card;
