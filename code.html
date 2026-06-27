@@ -121,12 +121,12 @@
             );
 
             -webkit-mask:
-                url("./return-icon.svg")
+                url("/SVG/return-icon.svg")
                 center / contain
                 no-repeat;
 
             mask:
-                url("./return-icon.svg")
+                url("/SVG/return-icon.svg")
                 center / contain
                 no-repeat;
 
@@ -325,6 +325,16 @@
                 transition: none;
             }
         }
+        /* For anyone looking at the code, I'm gonna just (temporarily) add this to fix image centering */
+        .project-card:first-child .project-image {
+            transform: translateY(-100px);
+        }
+        .project-card:nth-child(2) .project-image {
+            transform: translateY(-65px);
+        }
+        .project-card:nth-child(4) .project-image {
+            transform: translateY(-100px);
+        }
     </style>
 </head>
 
@@ -367,6 +377,10 @@
                     {
                         src: "./SVG/sqlite3.svg",
                         name: "SQlite3"
+                    },
+                    {
+                        src: "./SVG/json.svg",
+                        name: "JSON"
                     },
                     {
                         src: "./SVG/discord.svg",
@@ -415,12 +429,44 @@
 
                 icons: [
                     {
-                        src: "./SVG/python.svg",
-                        name: "Python"
+                        src: "./SVG/astro.svg",
+                        name: "Astro"
                     },
                     {
-                        src: "./SVG/github.svg",
-                        name: "GitHub"
+                        src: "./SVG/ts.svg",
+                        name: "TypeScript"
+                    },
+                    {
+                        src: "./SVG/css.svg",
+                        name: "CSS"
+                    },
+                    {
+                        src: "./SVG/js.svg",
+                        name: "JavaScript"
+                    }
+                ]
+            },
+            {
+                title: "GD Avenue Site",
+
+                description:
+                    "GD Avenue website with an extension of server rules (accordion), ideas generation through tagg aggregation and random selections from a pool, about section for some server staff, and privacy policy.",
+
+                image: "./IMG/gd-avenue-site.png",
+                imageAlt: "GD Avenue logo",
+
+                icons: [
+                    {
+                        src: "./SVG/html5.svg",
+                        name: "HTML5"
+                    },
+                    {
+                        src: "./SVG/css.svg",
+                        name: "CSS"
+                    },
+                    {
+                        src: "./SVG/js.svg",
+                        name: "JavaScript"
                     }
                 ]
             }
