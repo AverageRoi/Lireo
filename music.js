@@ -10,7 +10,7 @@ const musicProjects = [
             "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/soundcloud%253Aplaylists%253A1968417444&color=%23ff8000&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false",
         tracks: [
             {
-                title: "Tracks"
+                title: "Tracks:"
             },
             {
                 title: "Forever Destined"
@@ -33,15 +33,15 @@ const musicProjects = [
     {
         title: "Within Reach",
         type: "Album",
-        cover: "https://i1.sndcdn.com/artworks-uxf8XxYTgoOFGBh1-YzyYjQ-t500x500.jpg",
+        cover: "https://i1.sndcdn.com/artworks-aOZv1wnoO5qBxvbD-IeASAQ-t1080x1080.jpg",
         description:
             "This album represents a lot. Sometimes we have something or someone that makes such a huge impact on our lives, we don’t even have time to react. Within Reach represents the time to say goodbye to that something or someone. Life takes and gives, and we are forced to move on.",
         soundcloudUrl: "https://soundcloud.com/lireomusic/sets/within-reach",
         embedUrl:
-            "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/lireomusic/within-reach&color=%23ff8000&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false",
+            "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/2074686393&color=%23ff8000&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false",
         tracks: [
             {
-                title: "Tracks"
+                title: "Tracks:"
             },
             {
                 title: "Within Reach"
